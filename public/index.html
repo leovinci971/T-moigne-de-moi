@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="theme-color" content="#FDF6F0"/>
+  <title>Témoigne de moi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/theme.css"/>
+  <style>
+    body::before { content:''; position:fixed; inset:0; pointer-events:none; z-index:0; background: radial-gradient(ellipse 70% 50% at 80% -10%, rgba(244,185,66,.18) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at -10% 80%, rgba(232,130,90,.14) 0%, transparent 55%); }
+    .wrap { position:relative; z-index:1; align-items:center; }
+    .hero { text-align:center; padding:36px 0 20px; }
+    .hero-badge { display:inline-flex; align-items:center; gap:9px; padding:6px 18px; border-radius:30px; background:rgba(232,130,90,.1); border:1px solid rgba(232,130,90,.22); font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:var(--warm3); margin-bottom:20px; }
+    .badge-icon { width:20px; height:20px; flex-shrink:0; display:flex; align-items:center; justify-content:center; }
+    .hero h1 { font-family:'Playfair Display',serif; font-size:clamp(1.8rem,6vw,2.6rem); font-weight:700; line-height:1.1; margin-bottom:12px; white-space:nowrap; }
+    .hero h1 .accent { color:var(--warm1); }
+    .hero p { font-size:1rem; color:var(--muted); line-height:1.65; font-weight:300; max-width:380px; margin:0 auto; }
+    .divider { width:50px; height:3px; background:linear-gradient(90deg,var(--warm1),var(--warm2)); border-radius:2px; margin:18px auto; }
+    .question { font-size:.72rem; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); text-align:center; margin-bottom:16px; }
+    .modes { width:100%; display:flex; flex-direction:column; gap:12px; }
+    .mode-card { background:var(--card); border:1.5px solid var(--border); border-radius:var(--r); padding:20px; display:flex; align-items:center; gap:16px; cursor:pointer; transition:all .22s cubic-bezier(.34,1.56,.64,1); text-decoration:none; color:var(--text); position:relative; overflow:hidden; box-shadow:var(--shadow); }
+    .mode-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--c); opacity:0; transition:opacity .2s; }
+    .mode-card:hover { transform:translateY(-3px); border-color:var(--c); box-shadow:0 8px 28px rgba(0,0,0,.1); }
+    .mode-card:hover::before { opacity:1; }
+    .mode-card:active { transform:scale(.98); }
+    .mode-icon { width:54px; height:54px; border-radius:14px; flex-shrink:0; background:color-mix(in srgb,var(--c) 12%,transparent); display:flex; align-items:center; justify-content:center; font-size:26px; transition:transform .2s; }
+    .mode-card:hover .mode-icon { transform:scale(1.08); }
+    .mode-info { flex:1; }
+    .mode-title { font-size:1rem; font-weight:600; margin-bottom:4px; display:flex; align-items:center; gap:8px; }
+    .mode-tag { font-size:.6rem; padding:2px 8px; border-radius:20px; background:color-mix(in srgb,var(--c) 12%,transparent); color:var(--c); letter-spacing:.08em; text-transform:uppercase; }
+    .mode-desc { font-size:.84rem; color:var(--muted); line-height:1.5; }
+    .mode-arrow { font-size:18px; color:var(--border); transition:all .2s; flex-shrink:0; }
+    .mode-card:hover .mode-arrow { color:var(--c); transform:translateX(3px); }
+    .footer-note { text-align:center; font-size:.74rem; color:var(--muted); line-height:1.7; }
+    .admin-fab { position:fixed; bottom:20px; right:16px; padding:7px 14px; border-radius:20px; background:rgba(255,255,255,.85); backdrop-filter:blur(8px); border:1px solid var(--border); font-size:.68rem; font-family:inherit; color:var(--muted); text-decoration:none; transition:all .2s; z-index:100; }
+    .admin-fab:hover { border-color:var(--warm1); color:var(--warm1); }
+  </style>
+</head>
+<body>
+
+<div class="topbar">
+  <a href="/" class="topbar-logo">
+    <div class="topbar-icon" id="topbarIcon">
+      <svg viewBox="0 0 24 24" fill="white" width="16" height="16"><rect x="10" y="2" width="4" height="20" rx="1"/><rect x="2" y="8" width="20" height="4" rx="1"/></svg>
+    </div>
+    <span id="topbarTitle">Témoigne de moi</span>
+  </a>
+</div>
+
+<div class="wrap">
+  <div class="hero">
+    <div class="hero-badge">
+      <div class="badge-icon" id="badgeIcon">
+        <svg viewBox="0 0 20 20" fill="#C4714A" width="18" height="18"><rect x="8.5" y="1" width="3" height="18" rx="1"/><rect x="1" y="7" width="18" height="3" rx="1"/></svg>
+      </div>
+      <span id="badgeText">Votre voix compte</span>
+    </div>
+    <h1 id="heroTitle">Témoigne <span class="accent">de moi</span></h1>
+    <p id="heroSubtitle">Partagez votre expérience sous la forme qui vous convient — en quelques secondes.</p>
+    <div class="divider"></div>
+  </div>
+
+  <div class="question">Comment souhaitez-vous témoigner ?</div>
+
+  <div class="modes">
+    <a class="mode-card" href="/audio" style="--c:#E8825A;">
+      <div class="mode-icon">🎙</div>
+      <div class="mode-info">
+        <div class="mode-title">Message vocal <span class="mode-tag" style="--c:#E8825A;">Audio</span></div>
+        <div class="mode-desc">Enregistrez votre témoignage à la voix — rapide et naturel</div>
+      </div>
+      <div class="mode-arrow">→</div>
+    </a>
+
+    <a class="mode-card" href="/video" style="--c:#5B8DB8;">
+      <div class="mode-icon">🎥</div>
+      <div class="mode-info">
+        <div class="mode-title">Message vidéo <span class="mode-tag" style="--c:#5B8DB8;">Vidéo</span></div>
+        <div class="mode-desc">Filmez-vous pour un témoignage plus personnel et expressif</div>
+      </div>
+      <div class="mode-arrow">→</div>
+    </a>
+
+    <a class="mode-card" href="/ecrit" style="--c:#6BAE8E;">
+      <div class="mode-icon">✍️</div>
+      <div class="mode-info">
+        <div class="mode-title">Message écrit <span class="mode-tag" style="--c:#6BAE8E;">Texte</span></div>
+        <div class="mode-desc">Rédigez librement votre témoignage à votre rythme</div>
+      </div>
+      <div class="mode-arrow">→</div>
+    </a>
+  </div>
+
+  <div class="footer-note">Vos témoignages sont envoyés de façon sécurisée.<br>Merci pour votre confiance. 🙏</div>
+</div>
+
+<a href="/admin" class="admin-fab">⚙ Admin</a>
+<div class="toast" id="toast"></div>
+
+<script>
+fetch('/api/config').then(r=>r.json()).then(cfg=>{
+  if(cfg.appTitle) document.getElementById('topbarTitle').textContent=cfg.appTitle;
+  if(cfg.logoDataUrl){
+    document.getElementById('topbarIcon').innerHTML=`<img src="${cfg.logoDataUrl}" style="width:22px;height:22px;border-radius:4px;object-fit:cover;">`;
+    document.getElementById('badgeIcon').innerHTML=`<img src="${cfg.logoDataUrl}" style="width:20px;height:20px;border-radius:3px;object-fit:cover;">`;
+  }
+  if(cfg.badgeText) document.getElementById('badgeText').textContent=cfg.badgeText;
+  if(cfg.heroTitle){
+    const p=cfg.heroTitle.split('|');
+    document.getElementById('heroTitle').innerHTML=p[0]+(p[1]?` <span class="accent">${p[1]}</span>`:'');
+  }
+  if(cfg.appSubtitle) document.getElementById('heroSubtitle').textContent=cfg.appSubtitle;
+}).catch(()=>{});
+
+function toast(msg,t='inf'){const el=document.getElementById('toast');el.className=`toast ${t} show`;el.textContent=msg;setTimeout(()=>el.classList.remove('show'),3000);}
+</script>
+</body>
+</html>
